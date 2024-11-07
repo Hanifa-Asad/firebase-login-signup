@@ -38,12 +38,12 @@ label{
 }
 input{
 	width: 60%;
-	height: 10px;
+	height: 15px;
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
 	margin: 20px auto;
-	padding: 12px;
+	padding: 5px;
 	border: none;
 	outline: none;
 	border-radius: 5px;
@@ -51,14 +51,14 @@ input{
 button{
 	width: 60%;
 	height: 40px;
-	margin: 10px auto;
+	margin: 1px auto;
 	justify-content: center;
 	display: block;
 	color: #fff;
 	background: #573b8a;
 	font-size: 1em;
 	font-weight: bold;
-	margin-top: 30px;
+	margin-top: 10px;
 	outline: none;
 	border: none;
 	border-radius: 5px;
