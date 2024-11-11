@@ -130,4 +130,30 @@ button{
 	  cursor: not-allowed;
 	}
   }
-  
+  .swal2-actions {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    align-items: center; /* Centers the button vertically */
+	
+}
+.swal-popup {
+    width: 30vw;
+    padding: 20px;
+    font-size: 1.1rem;
+}
+
+/* For medium screens */
+@media (max-width: 768px) {
+    .swal-popup {
+        width: 70vw;
+        font-size: 1rem;
+    }
+}
+
+/* For small screens */
+@media (max-width: 480px) {
+    .swal-popup {
+        width: 85vw;
+        font-size: 0.9rem;
+    }
+}

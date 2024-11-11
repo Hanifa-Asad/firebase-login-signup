@@ -28,8 +28,102 @@
           />
        
     </div>
-    <button id="logOut" class="btn btn-danger">Log Out</button>
+    <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="settingsDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Settings
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+          <li>
+            <a
+              class="dropdown-item"
+              href="#"
+              id="updateAccount"
+              data-bs-toggle="modal"
+              data-bs-target="#updateAccountModal"
+              >Update Account</a
+            >
+          </li>
+          
+          <li><a class="dropdown-item" href="#" id="deleteAccount">Delete Account</a></li>
+          <li><a class="dropdown-item" href="#" id="deleteField">Delete Field</a></li>
+        </ul>
+      </div>
+    <button id="logOut" class="btn ">Log Out</button>
 </nav>
+<!-- Update Account Modal -->
+<div
+  class="modal fade"
+  id="updateAccountModal"
+  tabindex="-1"
+  aria-labelledby="updateAccountModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateAccountModalLabel">Update Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="updateAccountForm">
+          <div class="mb-3">
+            <label for="updateName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="updateName" placeholder="Enter your name" required>
+          </div>
+          <div class="mb-3">
+            <label for="updateNumber" class="form-label">Number</label>
+            <input type="text" class="form-control" id="updateNumber" placeholder="Enter your number" required>
+          </div>
+          <div class="form-group">
+            <label for="ageInput">Age:</label>
+            <input type="text" id="ageInput" class="form-control" placeholder="Enter Age (e.g. 10)" />
+          </div>
+          
+          <div class="form-group">
+            <label for="addInterestsInput">Interests to Add :</label>
+            <input type="text" id="addInterestsInput" class="form-control" placeholder="Enter Interests to add" />
+          </div>
+          
+          <div class="form-group">
+            <label for="removeInterestsInput">Interests to Remove :</label>
+            <input type="text" id="removeInterestsInput" class="form-control" placeholder="Enter Interests to remove" />
+          </div>
+     
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveAccountUpdates">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="deleteFieldModal" tabindex="-1" aria-labelledby="deleteFieldModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="deleteFieldModalLabel">Delete Field from Document</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <label for="fieldToDelete">Enter Field Name to Delete:</label>
+              <input type="text" id="fieldToDelete" class="form-control" placeholder="e.g. capital" />
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" id="confirmDeleteField" class="btn btn-danger">Delete Field</button>
+          </div>
+      </div>
+  </div>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="p-4 col-4">
@@ -54,7 +148,7 @@
                     </div>
 
                     <div class="mt-3">
-                        <button onclick="post()" class="btn">Post</button>
+                        <button onclick="post()"  class="btn">Post</button>
                     </div>
                 </div>
             </div>
