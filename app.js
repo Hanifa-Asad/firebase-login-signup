@@ -44,7 +44,7 @@ let signUp = () => {
             popup: 'swal-popup', // Add a custom class to the popup for styling
           },
         }).then(() => {
-          window.location.href = "/dashboard/index.html";
+          window.location.href = "/firebase-login-signup/dashboard/index.html/";
         });
         try {
           const docRef = await addDoc(collection(db, "users"), {
@@ -112,7 +112,7 @@ let logIn = () => {
           popup: 'swal-popup', // Add a custom class to the popup for styling
         },
       }).then(() => {
-        window.location.href = "/dashboard/index.html";
+        window.location.href = "/firebase-login-signup/dashboard/index.html/";
       });
       // try {
       //   await setDoc(doc(db,"users",user.uid), {
@@ -152,7 +152,7 @@ let logIn = () => {
             popup: 'swal-popup', // Add a custom class to the popup for styling
           },
         }).then(() => {
-          window.location.href = "/firebase-login-signup/dashboard/index.html";
+          window.location.href = "/firebase-login-signup/dashboard/index.html/";
         });
 
 
