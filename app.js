@@ -88,7 +88,7 @@ let signUp = () => {
     });
   }
 };
-if (window.location.pathname == "/index.html") {
+if (window.location.pathname == "/firebase-login-signup/") {
   let signUp_btn = document.getElementById("signUp_btn");
   signUp_btn.addEventListener("click", signUp);
 }
@@ -129,7 +129,7 @@ let logIn = () => {
       alert(error.code)
     });
   };
-  if (window.location.pathname == "/index.html") {
+  if (window.location.pathname == "/firebase-login-signup/") {
     let login_btn = document.getElementById("login_btn");
     login_btn.addEventListener("click", logIn);
   }
@@ -178,7 +178,7 @@ let logIn = () => {
       });
   }
 
-  if (window.location.pathname == "/index.html") {
+  if (window.location.pathname == "/firebase-login-signup/") {
     let googleBtn = document.getElementById("googleBtn");
     googleBtn.addEventListener("click", googleSignup);
   }
