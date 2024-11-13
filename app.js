@@ -44,7 +44,7 @@ let signUp = () => {
             popup: 'swal-popup', // Add a custom class to the popup for styling
           },
         }).then(() => {
-          window.location.href = "/firebase-login-signup/dashboard/index.html/";
+          window.location.href = "/firebase-login-signup/dashboard/index.html";
         });
         try {
           const docRef = await addDoc(collection(db, "users"), {
@@ -112,7 +112,7 @@ let logIn = () => {
           popup: 'swal-popup', // Add a custom class to the popup for styling
         },
       }).then(() => {
-        window.location.href = "/firebase-login-signup/dashboard/index.html/";
+        window.location.href = "/firebase-login-signup/dashboard/index.html";
       });
       // try {
       //   await setDoc(doc(db,"users",user.uid), {
@@ -152,7 +152,7 @@ let logIn = () => {
             popup: 'swal-popup', // Add a custom class to the popup for styling
           },
         }).then(() => {
-          window.location.href = "/firebase-login-signup/dashboard/index.html/";
+          window.location.href = "/firebase-login-signup/dashboard/index.html";
         });
 
 
@@ -182,7 +182,7 @@ let logIn = () => {
     let googleBtn = document.getElementById("googleBtn");
     googleBtn.addEventListener("click", googleSignup);
   }
-if (window.location.pathname == "/dashboard/index.html") {
+if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
   
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -199,7 +199,7 @@ if (window.location.pathname == "/dashboard/index.html") {
               showConfirmButton: false,
               timer: 3000,
             }).then(() => {
-              window.location.href = "../index.html"; // Redirect after successful logout
+              window.location.href = "../firebase-login-signup/"; // Redirect after successful logout
             });
           })
           .catch((error) => {
