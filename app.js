@@ -152,7 +152,7 @@ let logIn = () => {
             popup: 'swal-popup', // Add a custom class to the popup for styling
           },
         }).then(() => {
-          window.location.href = "/dashboard/index.html";
+          window.location.href = "/firebase-login-signup/dashboard/index.html";
         });
 
 
