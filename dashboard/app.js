@@ -5,22 +5,7 @@ const email = localStorage.getItem("userEmail");
 profilePhotoImg.addEventListener("click", () => {
   profilePhotoInput.click();
 });
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-// import { getAuth, createUserWithEmailAndPassword,  signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-// import { getFirestore, collection, addDoc,getDocs ,doc, setDoc ,updateDoc,serverTimestamp , arrayUnion, arrayRemove ,deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCj4cgWB84F2KSReQYI18aMraaLs1PHSss",
-//   authDomain: "sign-up-4dc9f.firebaseapp.com",
-//   projectId: "sign-up-4dc9f",
-//   storageBucket: "sign-up-4dc9f.firebasestorage.app",
-//   messagingSenderId: "412516384144",
-//   appId: "1:412516384144:web:a1125e20b0c8e7dce58715",
-//   measurementId: "G-QW5MH80Z92"
-// };
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
-// const provider = new GoogleAuthProvider();
-// const db = getFirestore(app);
+
 profilePhotoInput.addEventListener("change", (e) => {
   const file = e.target.files[0];
   const reader = new FileReader();
@@ -31,69 +16,8 @@ profilePhotoInput.addEventListener("change", (e) => {
 });
 
 
-// let updateProfile = async () => {
-//   // console.log("test");
-//   let name = document.getElementById("updateName").value;
-//   let number = document.getElementById("updateNumber").value;
-//   console.log(auth.currentUser.uid);
-//   let id = auth.currentUser.uid;
-//   try {
-//     const washingtonRef = doc(db, "users", id);
-//     await updateDoc(washingtonRef, 
-//       {name,
-//       number,
-//       timestamp: serverTimestamp(), 
-//       class:"10th",
-//       subjects: ["Eng", "Math", "Sci"],
-//       subjects: arrayUnion("Urdu"),
-//       subjects:arrayRemove("Math")
-//     }
-//     );
-//     console.log("Updated");
-    
-//   } catch (e) {
-//     console.log(e);
-//   }
-// };
-// let update_btn = document.querySelector("#saveAccountUpdates");
-// update_btn.addEventListener("click", updateProfile);
 var backgroundImg;
-// function post(){
-//     var title = document.getElementById("title")
-//     var description  = document.getElementById("description")
-//     var currentTime = new Date().toLocaleTimeString();
-//     if (title.value.trim() && description.value.trim()) {
-//       var post = document.getElementById("post");
-//       post.innerHTML += `
-//      <div class="card p-2 mb-2">
-//          <div class="card-header d-flex">
-//          <img class="profile-photo" src="${profilePhotoImg.src}" />
-//          <div class="name-time d-flex flex-column">
-//           ${email} 
-//           <div class="time">${currentTime}</div>
-//         </div>
-//       </div>
-//         <div style="background-image: url(${backgroundImg})" class="card-body">
-//           <blockquote class="blockquote mb-0">
-//              <p>${title.value}</p>
-//              <footer class="blockquote-footer">${description.value}</footer>
-//            </blockquote>
-//         </div>
-//          <div class="card-footer d-flex justify-content-end">
-//            <button type="button" onclick="editpost(this)" class="ms-2 btn  editBtn">Edit</button>
-//            <button type="button" onclick="deletePost(this)" class="ms-2 btn btn-danger deleteBtn">Delete</button>
-//          </div>
-//     </div>`;
-//       title.value = "";
-//       description.value = "";
-//     } else {
-//       Swal.fire({
-//         title: "Empty Post",
-//         text: "Can't publish post without Title or Description",
-//         icon: "question",
-//       });
-//     }
-// }
+
 
 function post() {
   var title = document.getElementById("title");

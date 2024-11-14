@@ -11,7 +11,8 @@ import {
   collection,
   addDoc,
   getDocs, doc, setDoc,
-  updateDoc, serverTimestamp, arrayUnion, arrayRemove, deleteDoc , deleteField
+  updateDoc, serverTimestamp, arrayUnion, arrayRemove, deleteDoc , 
+  deleteField ,orderBy,query ,where ,onSnapshot
 } from "./firebase.js";
 // var email = document.getElementById("email");
 export { signUp, logIn }
@@ -152,7 +153,8 @@ let logIn = () => {
             popup: 'swal-popup', // Add a custom class to the popup for styling
           },
         }).then(() => {
-          window.location.href = "/firebase-login-signup/dashboard/index.html";
+          window.location.href = "/dashboard/index.html";
+          // /firebase-login-signup/dashboard/index.html
         });
 
 
@@ -177,8 +179,8 @@ let logIn = () => {
         console.log(email, credential);
       });
   }
-
-  if (window.location.pathname == "/firebase-login-signup/") {
+// /firebase-login-signup/
+  if (window.location.pathname == "/") {
     let googleBtn = document.getElementById("googleBtn");
     googleBtn.addEventListener("click", googleSignup);
   }
@@ -199,7 +201,7 @@ if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
               showConfirmButton: false,
               timer: 3000,
             }).then(() => {
-              window.location.href = "../firebase-login-signup/"; // Redirect after successful logout
+              window.location.href = "../index.html"; // Redirect after successful logout
             });
           })
           .catch((error) => {
@@ -227,7 +229,7 @@ if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
     });
   };
   getAllUsers()
-if (window.location.pathname == "/dashboard/index.html") {
+if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
   
  document.getElementById("saveAccountUpdates").addEventListener("click", async () => {
     console.log("Update button clicked"); // Debug log to verify button click
@@ -298,11 +300,11 @@ let deleteAccount=async()=>{
   await deleteDoc(doc(db, "users", id));
   console.log("Account Deleted");
 }
-if (window.location.pathname == "/dashboard/index.html") {
+if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
   let delete_btn = document.getElementById("deleteAccount")
 delete_btn.addEventListener("click", deleteAccount)
 }
-if (window.location.pathname == "/dashboard/index.html") {
+if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
   
 
 
@@ -339,4 +341,25 @@ if (window.location.pathname == "/dashboard/index.html") {
               Swal.fire('Error', 'There was an issue deleting the field.', 'error');
           }
       }
+    }
+    let addPost = async () => {
+      let titileInput = document.getElementById("titileInput");
+      let descInput  = document.getElementById("descInput");
+      try {
+        const docRef = await addDoc(collection(db, "Posts"), {
+          value: titileInput.value,
+          value: descInput.value,
+          time: serverTimestamp(),
+          status: "pending"
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    if (window.location.pathname == "/dashboard/index.html") {
+      
+    
+    let postBtn = document.getElementById("postBtn");
+    postBtn.addEventListener("click", addPost);
     }
