@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword,  signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { getFirestore, collection, addDoc, serverTimestamp,doc,  updateDoc,deleteDoc,getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, serverTimestamp,doc,  updateDoc,deleteDoc,getDocs , setDoc  , arrayUnion, arrayRemove , deleteField ,orderBy,query ,where ,onSnapshot,} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyCj4cgWB84F2KSReQYI18aMraaLs1PHSss",
   authDomain: "sign-up-4dc9f.firebaseapp.com",

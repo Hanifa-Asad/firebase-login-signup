@@ -184,7 +184,7 @@ if (window.location.pathname === "/") {
       });
   }
 // /firebase-login-signup/
-  // if (window.location.pathname == "/") {
+  // if (window.location.pathname !== "/") {
   //   let googleBtn = document.getElementById("googleBtn");
   //   googleBtn.addEventListener("click", googleSignup);
   // }
@@ -206,7 +206,7 @@ if (window.location.pathname === "/") {
     });
   };
   getAllUsers()
-  console.log(getAllUsers);
+ 
   
 // if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
   
