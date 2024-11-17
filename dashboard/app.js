@@ -330,7 +330,7 @@ let deleteAccount=async()=>{
   console.log("Account Deleted");
 }
 let delete_btn = document.getElementById("deleteAccount")
-delete_btn.addEventListener("click", deleteAccount)
+delete_btn.addEventListener("click", deleteAccount);
 
 const deleteFieldModal = new bootstrap.Modal(document.getElementById('deleteFieldModal'));
 
