@@ -35,17 +35,18 @@ let signUp = () => {
         const user = userCredential.user;
         console.log(user);
         localStorage.setItem("userEmail", email)
-        // alert("Account created successfully");
+
         Swal.fire({
-          position: "top-end", // Default position for larger screens
+          position: "top-end", 
           icon: "success",
           title: "Account created successfully!",
           timer: 12000,
           customClass: {
-            popup: 'swal-popup', // Add a custom class to the popup for styling
+            popup: 'swal-popup', 
           },
         }).then(() => {
-          window.location.href = "/firebase-login-signup/dashboard/index.html";
+              window.location.href = "/firebase-login-signup/dashboard/index.html";
+      
         });
         try {
           const docRef = await addDoc(collection(db, "users"), {
@@ -56,22 +57,14 @@ let signUp = () => {
         } catch (e) {
           console.error("Error adding document: ", e);
         }
-        // try {
-        //   await setDoc(doc(db,"users",user.uid), {
-        //     ...userData,
-        //     uId: user.uid
-        //   });
-        //       console.log("Document written with ID: ", user.uid);
-        //     } catch (e) {
-        //       console.error("Error adding document: ", e);
-        //     }
+    
       })
       .catch((error) => {
         console.log(error.message);
         alert(error.code);
       });
   } else {
-    // alert("Invalid email or Password");
+  ;
     Swal.fire({
       title: "Invalid",
       text: "Invalid Email or Password",
@@ -80,7 +73,7 @@ let signUp = () => {
     });
   }
   if (password !== cPassword) {
-    // alert("Passwords should be identical");
+    
     Swal.fire({
       title: "Not Match",
       text: "IPasswords should be identical",
@@ -89,10 +82,20 @@ let signUp = () => {
     });
   }
 };
-if (window.location.pathname == "/firebase-login-signup/") {
-  let signUp_btn = document.getElementById("signUp_btn");
-  signUp_btn.addEventListener("click", signUp);
+// if (window.location.pathname !== "/dashboard") {
+//   let signUp_btn = document.getElementById("signUp_btn");
+//   signUp_btn.addEventListener("click", signUp);
+// }
+let signUp_btn = document.getElementById("signUp_btn");
+
+if (window.location.pathname === "/") {
+   
+    signUp_btn.addEventListener("click", signUp);
+} else {
+    
+    signUp_btn.addEventListener("click", signUp);
 }
+
 
 
 let logIn = () => {
@@ -103,39 +106,40 @@ let logIn = () => {
       const user = userCredential.user;
       console.log(user);
 
-      // alert("Login Successful")
+     
       Swal.fire({
-        position: "top-end", // Default position for larger screens
+        position: "top-end", 
         icon: "success",
         title: "Account created successfully!",
         timer: 12000,
         customClass: {
-          popup: 'swal-popup', // Add a custom class to the popup for styling
+          popup: 'swal-popup',
         },
       }).then(() => {
         window.location.href = "/firebase-login-signup/dashboard/index.html";
       });
-      // try {
-      //   await setDoc(doc(db,"users",user.uid), {
-      //     ...userData,
-      //     uId: user.uid
-      //   });
-      //       console.log("Document written with ID: ", user.uid);
-      //     } catch (e) {
-      //       console.error("Error adding document: ", e);
-      //     }
+   
     })
 
     .catch((error) => {
       alert(error.code)
     });
   };
-  if (window.location.pathname == "/firebase-login-signup/") {
-    let login_btn = document.getElementById("login_btn");
+  // if (window.location.pathname == "/firebase-login-signup/") {
+  //   let login_btn = document.getElementById("login_btn");
+  //   login_btn.addEventListener("click", logIn);
+  // }
+
+  let login_btn = document.getElementById("login_btn");
+
+if (window.location.pathname === "/") {
+   
     login_btn.addEventListener("click", logIn);
-  }
-  // let login_btn = document.getElementById("login_btn");
-  // login_btn.addEventListener("click", logIn);
+} else {
+    
+    login_btn.addEventListener("click", logIn);
+}
+
   let googleSignup = () => {
     signInWithPopup(auth, provider)
       .then(async (result) => {
@@ -145,16 +149,16 @@ let logIn = () => {
         const user = result.user;
         console.log(user);
         Swal.fire({
-          position: "top-end", // Default position for larger screens
+          position: "top-end", 
           icon: "success",
           title: "Account created successfully!",
           timer: 12000,
           customClass: {
-            popup: 'swal-popup', // Add a custom class to the popup for styling
+            popup: 'swal-popup', 
           },
         }).then(() => {
-          window.location.href = "/dashboard/index.html";
-          // /firebase-login-signup/dashboard/index.html
+          window.location.href = "/firebase-login-signup/dashboard/index.html";
+          
         });
 
 
@@ -180,46 +184,19 @@ let logIn = () => {
       });
   }
 // /firebase-login-signup/
-  if (window.location.pathname == "/") {
-    let googleBtn = document.getElementById("googleBtn");
-    googleBtn.addEventListener("click", googleSignup);
+  // if (window.location.pathname == "/") {
+  //   let googleBtn = document.getElementById("googleBtn");
+  //   googleBtn.addEventListener("click", googleSignup);
+  // }
+  let googleBtn = document.getElementById("googlebtn");
+
+  if (window.location.pathname === "/") {
+     
+      googleBtn.addEventListener("click", googleSignup);
+  } else {
+      
+      googleBtn.addEventListener("click", googleSignup);
   }
-if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
-  
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const logOutButton = document.getElementById("logOut");
-
-    if (logOutButton) {
-      logOutButton.addEventListener("click", () => {
-        signOut(auth)
-          .then(() => {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "Logged out successfully!",
-              showConfirmButton: false,
-              timer: 3000,
-            }).then(() => {
-              window.location.href = "../index.html"; // Redirect after successful logout
-            });
-          })
-          .catch((error) => {
-            console.error("Error during sign out:", error);
-            Swal.fire({
-              icon: "error",
-              title: "Logout Failed",
-              text: error.message,
-            });
-          });
-      });
-    } else {
-      console.error("Logout button not found on the page.");
-    }
-  });
-}
-
-  
 
 
   let getAllUsers = async () => {
@@ -229,10 +206,10 @@ if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
     });
   };
   getAllUsers()
-if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
+if (window.location.pathname == "/dashboard/index.html") {
   
  document.getElementById("saveAccountUpdates").addEventListener("click", async () => {
-    console.log("Update button clicked"); // Debug log to verify button click
+    console.log("Update button clicked");
     const name = document.getElementById("updateName").value;
     const number = document.getElementById("updateNumber").value;
     let ageInput = document.getElementById("ageInput").value;
@@ -247,10 +224,10 @@ if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
       try {
         const user = auth.currentUser;
         if (user) {
-          console.log("User found:", user.uid); // Debug log to check user ID
+          console.log("User found:", user.uid); 
   
-          // Update user data in Firestore
-          const userRef = doc(db, "users", id);
+          
+          const userRef = doc(db, "users", auth.currentUser.uid);
           await updateDoc(userRef, {
             name: name,
             number: number,
@@ -260,7 +237,7 @@ if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
             removeInterests: arrayRemove(...removeInterests) 
           });
           
-          console.log("Account updated successfully"); // Debug log for success
+          console.log("Account updated successfully"); 
   
           Swal.fire({
             position: "top-end",
@@ -270,7 +247,7 @@ if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
             timer: 3000
           });
           
-          // Close the modal
+         
           document.querySelector("#updateAccountModal .btn-close").click();
         } else {
           console.error("No user is currently signed in.");
@@ -293,11 +270,11 @@ if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
   });
 }
   
-// console.log(window.location.pathname);
+
 let deleteAccount=async()=>{
   let id = auth.currentUser.uid
   console.log(id);
-  await deleteDoc(doc(db, "users", id));
+  await deleteDoc(doc(db, "users", auth.currentUser.uid));
   console.log("Account Deleted");
 }
 if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
@@ -331,7 +308,7 @@ if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
             let id = auth.currentUser.uid
             console.log(id);
             
-              const userRef = doc(db, 'users', id); 
+              const userRef = doc(db, 'users', auth.currentUser.uid); 
               await updateDoc(userRef, {
                 [fieldName]: deleteField()
             });
@@ -342,24 +319,5 @@ if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
           }
       }
     }
-    let addPost = async () => {
-      let titileInput = document.getElementById("titileInput");
-      let descInput  = document.getElementById("descInput");
-      try {
-        const docRef = await addDoc(collection(db, "Posts"), {
-          value: titileInput.value,
-          value: descInput.value,
-          time: serverTimestamp(),
-          status: "pending"
-        });
-        console.log("Document written with ID: ", docRef.id);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    if (window.location.pathname == "/dashboard/index.html") {
-      
-    
-    let postBtn = document.getElementById("postBtn");
-    postBtn.addEventListener("click", addPost);
-    }
+
+  

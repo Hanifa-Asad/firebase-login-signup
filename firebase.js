@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";;
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword,  signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { getFirestore, collection, addDoc,getDocs ,doc, setDoc ,updateDoc,serverTimestamp , arrayUnion, arrayRemove ,deleteDoc, deleteField ,orderBy,query ,where ,onSnapshot, } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
 
