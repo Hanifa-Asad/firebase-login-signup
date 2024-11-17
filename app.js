@@ -206,7 +206,9 @@ if (window.location.pathname === "/") {
     });
   };
   getAllUsers()
-if (window.location.pathname == "/dashboard/index.html") {
+  console.log(getAllUsers);
+  
+if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
   
  document.getElementById("saveAccountUpdates").addEventListener("click", async () => {
     console.log("Update button clicked");
