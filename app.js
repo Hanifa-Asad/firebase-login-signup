@@ -208,7 +208,7 @@ if (window.location.pathname === "/") {
   getAllUsers()
   console.log(getAllUsers);
   
-if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
+if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
   
  document.getElementById("saveAccountUpdates").addEventListener("click", async () => {
     console.log("Update button clicked");
@@ -279,11 +279,11 @@ let deleteAccount=async()=>{
   await deleteDoc(doc(db, "users", auth.currentUser.uid));
   console.log("Account Deleted");
 }
-if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
+if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
   let delete_btn = document.getElementById("deleteAccount")
 delete_btn.addEventListener("click", deleteAccount)
 }
-if (window.location.pathname == "/firebase-login-signup/dashboard/index.html") {
+if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
   
 
 
