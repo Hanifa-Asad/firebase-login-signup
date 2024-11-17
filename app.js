@@ -208,118 +208,20 @@ if (window.location.pathname === "/") {
   getAllUsers()
   console.log(getAllUsers);
   
-if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
+// if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
   
- document.getElementById("saveAccountUpdates").addEventListener("click", async () => {
-    console.log("Update button clicked");
-    const name = document.getElementById("updateName").value;
-    const number = document.getElementById("updateNumber").value;
-    let ageInput = document.getElementById("ageInput").value;
-    let addInterestsInput = document.getElementById("addInterestsInput").value;
-    let removeInterestsInput = document.getElementById("removeInterestsInput").value;
-
-    let id = auth.currentUser.uid;
-    let addInterests = addInterestsInput.split(",").map(interests => interests.trim());
-  let removeInterests = removeInterestsInput.split(",").map(interests => interests.trim());
-    
-    if (name && number) {
-      try {
-        const user = auth.currentUser;
-        if (user) {
-          console.log("User found:", user.uid); 
-  
-          
-          const userRef = doc(db, "users", auth.currentUser.uid);
-          await updateDoc(userRef, {
-            name: name,
-            number: number,
-            age: ageInput,
-            timestamp: serverTimestamp(), 
-            addInterests: arrayUnion(...addInterests), 
-            removeInterests: arrayRemove(...removeInterests) 
-          });
-          
-          console.log("Account updated successfully"); 
-  
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Account updated successfully!",
-            showConfirmButton: false,
-            timer: 3000
-          });
-          
-         
-          document.querySelector("#updateAccountModal .btn-close").click();
-        } else {
-          console.error("No user is currently signed in.");
-        }
-      } catch (error) {
-        console.error("Error updating account:", error);
-        Swal.fire({
-          icon: "error",
-          title: "Failed to update account",
-          text: error.message
-        });
-      }
-    } else {
-      Swal.fire({
-        icon: "warning",
-        title: "Incomplete Information",
-        text: "Please fill out both the name and number fields."
-      });
-    }
-  });
-}
-  
-
-let deleteAccount=async()=>{
-  let id = auth.currentUser.uid
-  console.log(id);
-  await deleteDoc(doc(db, "users", auth.currentUser.uid));
-  console.log("Account Deleted");
-}
-if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
-  let delete_btn = document.getElementById("deleteAccount")
-delete_btn.addEventListener("click", deleteAccount)
-}
-if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
+ 
+// }
   
 
 
-      const deleteFieldModal = new bootstrap.Modal(document.getElementById('deleteFieldModal'));
+// if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
 
-      document.getElementById('deleteField').addEventListener('click', () => {
-          deleteFieldModal.show(); 
-      });
+// }
+// if (window.location.pathname !== "/firebase-login-signup/dashboard/index.html") {
   
-     
-      document.getElementById('confirmDeleteField').addEventListener('click', () => {
-          const fieldName = document.getElementById('fieldToDelete').value.trim();
-          if (fieldName) {
-             
-              deleteFieldFromFirestore(fieldName);
-          } else {
-              Swal.fire('Error', 'Please provide a valid field name to delete.', 'warning');
-          }
-      });
-  
-    
-      async function deleteFieldFromFirestore(fieldName) {
-          try {
-            let id = auth.currentUser.uid
-            console.log(id);
-            
-              const userRef = doc(db, 'users', auth.currentUser.uid); 
-              await updateDoc(userRef, {
-                [fieldName]: deleteField()
-            });
-              Swal.fire('Success', `Field "${fieldName}" deleted successfully!`, 'success');
-          } catch (error) {
-              console.error("Error deleting field: ", error);
-              Swal.fire('Error', 'There was an issue deleting the field.', 'error');
-          }
-      }
-    }
+
+
+// }
 
   
