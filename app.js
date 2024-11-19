@@ -183,14 +183,10 @@ if (window.location.pathname === "/") {
         console.log(email, credential);
       });
   }
-// /firebase-login-signup/
-  // if (window.location.pathname !== "/") {
-  //   let googleBtn = document.getElementById("googleBtn");
-  //   googleBtn.addEventListener("click", googleSignup);
-  // }
+
   let googleBtn = document.getElementById("googlebtn");
 
-  if (window.location.pathname === "/") {
+  if (window.location.pathname === "/firebase-login-signup/") {
      
       googleBtn.addEventListener("click", googleSignup);
   } else {

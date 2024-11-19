@@ -425,5 +425,15 @@ const deleteFieldModal = new bootstrap.Modal(document.getElementById('deleteFiel
           });
         }
       });
-
+      document.getElementById('chatBtn').addEventListener('click', () => {
+        const chatSection = document.getElementById('chatSection');
+        // Toggle visibility of the chat section
+        chatSection.style.display = chatSection.style.display === 'none' ? 'block' : 'none';
+      });
+      
+      // Function to close the chat section
+      function closeChat() {
+        document.getElementById('chatSection').style.display = 'none';
+      }
+      
   

@@ -57,3 +57,46 @@
     background-size: cover;
     background-position: bottom;
 }
+#chatBtn {
+    background-color: #0084ff; /* Messenger Blue */
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  #chatBtn i {
+    font-size: 1.5rem;
+  }
+
+  /* Style for the chat section */
+  .chat-section {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f1f1f1;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    display: none; /* Hidden by default */
+    padding: 20px;
+  }
+
+  .chat-section iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
