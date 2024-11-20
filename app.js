@@ -140,59 +140,109 @@ if (window.location.pathname === "/") {
     login_btn.addEventListener("click", logIn);
 }
 
+  // let googleSignup = () => {
+  //   signInWithPopup(auth, provider)
+  //     .then(async (result) => {
+
+  //       const credential = GoogleAuthProvider.credentialFromResult(result);
+  //       const token = credential.accessToken;
+  //       const user = result.user;
+  //       console.log(user);
+  //       Swal.fire({
+  //         position: "top-end", 
+  //         icon: "success",
+  //         title: "Account created successfully!",
+  //         timer: 12000,
+  //         customClass: {
+  //           popup: 'swal-popup', 
+  //         },
+  //       }).then(() => {
+  //         window.location.href = "/firebase-login-signup/dashboard/index.html";
+          
+  //       });
+
+
+  //       try {
+  //         await setDoc(doc(db, "users", user.uid), {
+  //           uid: user.uid,
+  //           name: user.displayName,
+  //           email: user.email,
+  //           image: user.photoURL,
+  //           number: user.phoneNumber
+
+  //         });
+  //         console.log("Document written with ID: ", user.uid);
+  //       } catch (e) {
+  //         console.error("Error adding document: ", e);
+  //       }
+
+  //     }).catch((error) => {
+
+  //       const email = error.customData.email;
+  //       const credential = GoogleAuthProvider.credentialFromError(error);
+  //       console.log(email, credential);
+  //     });
+  // }
+
+  // let googleBtn = document.getElementById("googlebtn");
+
+  // if (window.location.pathname === "/firebase-login-signup/") {
+     
+  //     googleBtn.addEventListener("click", googleSignup);
+  // } else {
+      
+  //     googleBtn.addEventListener("click", googleSignup);
+  // }
   let googleSignup = () => {
     signInWithPopup(auth, provider)
       .then(async (result) => {
-
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
         console.log(user);
+
+        // Show success message using Swal
         Swal.fire({
           position: "top-end", 
           icon: "success",
           title: "Account created successfully!",
           timer: 12000,
-          customClass: {
-            popup: 'swal-popup', 
-          },
+          customClass: { popup: 'swal-popup' }
         }).then(() => {
           window.location.href = "/firebase-login-signup/dashboard/index.html";
-          
         });
 
-
+        // Store user data in Firestore
         try {
           await setDoc(doc(db, "users", user.uid), {
             uid: user.uid,
             name: user.displayName,
             email: user.email,
             image: user.photoURL,
-            number: user.phoneNumber
-
+            number: user.phoneNumber || ''
           });
           console.log("Document written with ID: ", user.uid);
         } catch (e) {
           console.error("Error adding document: ", e);
         }
-
-      }).catch((error) => {
-
-        const email = error.customData.email;
+      })
+      .catch((error) => {
+        console.error("Google sign-in error:", error);  // Log full error
+        const email = error.customData?.email; // Safe access
         const credential = GoogleAuthProvider.credentialFromError(error);
         console.log(email, credential);
       });
-  }
+};
 
-  let googleBtn = document.getElementById("googlebtn");
+// Ensure googleBtn element exists
+let googleBtn = document.getElementById("googlebtn");
 
-  if (window.location.pathname === "/firebase-login-signup/") {
-     
-      googleBtn.addEventListener("click", googleSignup);
-  } else {
-      
-      googleBtn.addEventListener("click", googleSignup);
-  }
+if (googleBtn) {
+  googleBtn.addEventListener("click", googleSignup);
+} else {
+  console.error("Google button not found");
+}
+
 
 
   let getAllUsers = async () => {
