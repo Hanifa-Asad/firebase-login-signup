@@ -240,7 +240,8 @@ let googleBtn = document.getElementById("googleBtn");
 if (window.location.pathname === "/firebase-login-signup/") {
   googleBtn.addEventListener("click", googleSignup);
 } else {
-  console.error("Google button not found");
+  // console.error("Google button not found");
+  googleBtn.addEventListener("click", googleSignup);
 }
 
 
