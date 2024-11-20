@@ -235,7 +235,7 @@ if (window.location.pathname === "/") {
 };
 
 // Ensure googleBtn element exists
-let googleBtn = document.getElementById("googlebtn");
+let googleBtn = document.getElementById("googleBtn");
 
 if (googleBtn) {
   googleBtn.addEventListener("click", googleSignup);
