@@ -19,22 +19,22 @@ const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
 
-const profilePhotoImg = document.getElementById("profilePhotoImg");
-profilePhotoImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png';
-const profilePhotoInput = document.getElementById("profilePhotoInput");
+// const profilePhotoImg = document.getElementById("profilePhotoImg");
+// profilePhotoImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png';
+// const profilePhotoInput = document.getElementById("profilePhotoInput");
 
-profilePhotoImg.addEventListener("click", () => {
-  profilePhotoInput.click();
-});
+// profilePhotoImg.addEventListener("click", () => {
+//   profilePhotoInput.click();
+// });
 
-profilePhotoInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  const reader = new FileReader();
-  reader.onload = () => {
-    profilePhotoImg.src = reader.result;
-  };
-  reader.readAsDataURL(file);
-});
+// profilePhotoInput.addEventListener("change", (e) => {
+//   const file = e.target.files[0];
+//   const reader = new FileReader();
+//   reader.onload = () => {
+//     profilePhotoImg.src = reader.result;
+//   };
+//   reader.readAsDataURL(file);
+// });
 
 let backgroundImg = "";
 
@@ -425,15 +425,15 @@ const deleteFieldModal = new bootstrap.Modal(document.getElementById('deleteFiel
           });
         }
       });
-      document.getElementById('chatBtn').addEventListener('click', () => {
-        const chatSection = document.getElementById('chatSection');
-        // Toggle visibility of the chat section
-        chatSection.style.display = chatSection.style.display === 'none' ? 'block' : 'none';
-      });
+      // document.getElementById('chatBtn').addEventListener('click', () => {
+      //   const chatSection = document.getElementById('chatSection');
+      //   // Toggle visibility of the chat section
+      //   chatSection.style.display = chatSection.style.display === 'none' ? 'block' : 'none';
+      // });
       
-      // Function to close the chat section
-      function closeChat() {
-        document.getElementById('chatSection').style.display = 'none';
-      }
+      // // Function to close the chat section
+      // function closeChat() {
+      //   document.getElementById('chatSection').style.display = 'none';
+      // }
       
   
